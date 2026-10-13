@@ -35,3 +35,8 @@ jspm_packages/
 
 myArchive.txt
 wof.txt
+node_modules/
+dist/
+
+node_modules/
+dist/
