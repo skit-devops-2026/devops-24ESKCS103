@@ -25,7 +25,7 @@ make run
 
 ## Live URL
 
-<Add once M5 is done. Until then, leave as is.>
+https://lifequest-nze0.onrender.com
 
 ## Health endpoint
 
