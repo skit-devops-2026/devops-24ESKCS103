@@ -1,6 +1,7 @@
 services:
   lifequest:
     build: .
+    image: sharmadaksh/lifequest:latest
     ports:
       - "8080:80"
     restart: unless-stopped
