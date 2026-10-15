@@ -4,4 +4,26 @@ services:
     image: sharmadaksh/lifequest:latest
     ports:
       - "8080:80"
+    expose:
+      - "80"
     restart: unless-stopped
+
+  prometheus:
+    image: prom/prometheus:latest
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    depends_on:
+      - lifequest
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./monitoring/dashboard.json:/var/lib/grafana/dashboards/lifequest.json:ro
+    depends_on:
+      - prometheus
