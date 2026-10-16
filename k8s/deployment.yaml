@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lifequest
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: lifequest
+  template:
+    metadata:
+      labels:
+        app: lifequest
+    spec:
+      containers:
+        - name: lifequest
+          image: sharmadaksh/lifequest:latest
+          ports:
+            - containerPort: 80
